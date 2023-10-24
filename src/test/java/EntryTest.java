@@ -108,6 +108,7 @@ public class EntryTest {
     @Test
     public void testingGetStringMethodThrowsBadType() {
         // Test 6
+
         // Initially: test fails as we have not created a BadType exception or adjusted our getString method to throw it
         // To pass this test I had to:
             // 1) Create a custom exception: BadType which extends Exception
@@ -116,7 +117,7 @@ public class EntryTest {
 
         // Asserting correct error is thrown when getString() is called on a float Entry
         Entry floatEntry = new Entry(1.0f);
-        BadType thrown1 = assertThrowsExactly(BadType.class, () -> floatEntry.getString());
+        BadType thrown1 = assertThrowsExactly(BadType.class, () -> floatEntry.getString()); // TODO: Review slides to see if lectures uses method references instead of lambda functions e.g. floatEntry::getString instead of () -> floatEntry.getString() as we're currently getting a warning about this
         assertEquals("getString() called on wrong type. This Entry object is of type: NUMBER", thrown1.getMessage());
 
         // Asserting correct error is thrown when getString() is called on a Symbol Entry
